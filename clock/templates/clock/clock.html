@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #clockContainer {
+    position: relative;
+    margin: auto;
+    height: 400px;
+    width:400px;
+    
+}
+  
+#hour,
+#minute,
+#second {
+    position: absolute;
+    background: red;
+    border-radius: 10px;
+    transform-origin: bottom;
+}
+  
+#hour {
+    width: 1%;
+    height: 25%;
+    top: 25%;
+    left: 48.85%;
+    opacity: 0.8;
+    
+}
+  
+#minute {
+    width: 1%;
+    height: 30%;
+    top: 19%;
+    left: 48.9%;
+    opacity: 0.8;
+   
+}
+  
+#second {
+    width: 1%;
+    height: 40%;
+    top: 9%;
+    left: 49.25%;
+    opacity: 0.8;
+    
+}
+    </style>
+    
+</head>
+<body>
+    <div id="clockContainer" >
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210302161254/imgonlinecomuaCompressToSizeOmNATjUMFKw-300x300.jpg" alt="" style="margin-left: 40px; margin-top: 40px; width: 80%;" >
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <script>
+    setInterval(() => {
+    d = new Date();
+    hr = d.getHours();
+    min = d.getMinutes();
+    sec = d.getSeconds();
+    hr_rotation = 30 * hr + min / 2; 
+    min_rotation = 6 * min;
+    sec_rotation = 6 * sec;
+  
+    hour.style.transform = `rotate(${hr_rotation}deg)`;
+    minute.style.transform = `rotate(${min_rotation}deg)`;
+    second.style.transform = `rotate(${sec_rotation}deg)`;
+}, 1000);
+    </script>
+</body>
+</html>
